@@ -41,6 +41,7 @@ router.get('/search/:brand/:color', async (req, res, next) => {
 router.get('/search/:brand/:color/:price', async (req, res, next) => {
   try {
     const result = await products.getProductsByBrandColorPrice(req.params.brand, req.params.color, req.params.price);
+    console.log('eiiii')
     res.json({ result }).status(200);
   } catch (err) {
     next(err);
@@ -62,7 +63,7 @@ router.get('/search', async (req, res) => {
               ? products.getProductsByPrice(price)
               : !brand && color && !price
                 ? products.getProductsByColor(color)
-                : getProductsByBrand(brand));
+                : products.getProductsByBrand(brand));
 
   result.length > 0
     ? res.json({ result }).status(200).end()
