@@ -58,6 +58,16 @@ const getProductsByBrand = async (brand) => {
     }).exec();
 };
 
+const getProductsAndManufacturers = async (id) => {
+  const product = await Product.findById(id).populate('manufacturer._id').exec();
+  return {
+    ...product,
+    manufacturer: {
+      ...product.manufacturer.id_doc
+    }
+  };
+};
+
 module.exports = {
   getProducts,
   getProductsByBrandColorPrice,
@@ -67,4 +77,5 @@ module.exports = {
   getProductsByPrice,
   getProductsByColor,
   getProductsByBrand,
+  getProductsAndManufacturers
 };

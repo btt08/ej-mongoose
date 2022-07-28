@@ -2,9 +2,14 @@ const { model, Schema } = require('mongoose');
 
 const productsSchema = new Schema({
   name: String,
-  manufacter: String,
   color: String,
-  price: Number
+  price: Number,
+  manufacturer: {
+    _id: {
+      type: Schema.Types.ObjectId,
+      ref: 'Manufacturer'
+    }
+  }
 });
 
 const Product = model('Product', productsSchema);
