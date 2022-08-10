@@ -45,7 +45,7 @@ async function getAllCars() {
     const newDiv = document.createElement('div');
     newDiv.classList.add('car');
     for (const property in car) {
-      if (property !== '_id') {
+      if (!['manufacturer', '_id', '__v'].includes(property)) {
         const newP = document.createElement('p');
         newP.innerText = `${property}: ${car[property]}`;
         newDiv.append(newP);
