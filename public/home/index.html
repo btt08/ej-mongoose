@@ -29,13 +29,14 @@
 
       #content {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
       }
 
       .car {
-        width: 80%;
-        margin: 20px auto;
-        padding: 7px;
+        width: 480px;
+        margin-top: 20px;
+        padding: 10px;
         border: 3px darkgray solid;
       }
 
@@ -45,7 +46,6 @@
     </style>
   </head>
   <body>
-    <!-- <h1>HOME</h1> -->
     <form action="">
       <input type="text"
              id="input-brand"
@@ -55,9 +55,9 @@
              placeholder="Color">
       <input type="number"
              id="input-price"
-             value="50000">
+             placeholder="Precio">
       <select name="manufacturers"
-              id="manufacturers">
+              id="select-manufacturers">
         <option value="">All</option>
       </select>
       <input type="button"

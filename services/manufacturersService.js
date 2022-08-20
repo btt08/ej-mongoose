@@ -1,7 +1,7 @@
 const Manufacturer = require('../models/Manufacturer.js');
 
-const getManufacturers = async () => {
+const getAllManufacturers = async () => {
   return await Manufacturer.find({}).exec();
 }
 
-module.exports = getManufacturers;
+module.exports = getAllManufacturers;
